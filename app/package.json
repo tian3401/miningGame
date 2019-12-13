@@ -1,0 +1,24 @@
+{
+  "name": "miningGame",
+  "version": "1.0.0",
+  "description": "A simple mining game that uses hashes and BTC prices to determine the rate of mining and how many miners a user gets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tian3401/miningGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tian3401/miningGame/issues"
+  },
+  "homepage": "https://github.com/tian3401/miningGame#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "crypto-random-string": "^3.0.1"
+  }
+}
