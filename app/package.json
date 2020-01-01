@@ -19,6 +19,7 @@
   "homepage": "https://github.com/tian3401/miningGame#readme",
   "dependencies": {
     "crypto-js": "^3.1.9-1",
-    "crypto-random-string": "^3.0.1"
+    "crypto-random-string": "^3.0.1",
+    "inquirer": "^7.0.1"
   }
 }

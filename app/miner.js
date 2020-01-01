@@ -40,6 +40,7 @@ class Miner {
         trigger = true; 
       }
     }
+    console.log(`Your miner just mined ${this.coin} coins!`); 
   }
 }
 
