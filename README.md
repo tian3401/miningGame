@@ -1,5 +1,5 @@
 # The Mining Game
-A simple mining game that uses hashes and BTC prices to determine the rate of mining and how many miners a user gets.
+A simple mining game that uses hashes and cryptocurrency prices to determine the rate of mining and how many miners a user gets.
 
 ## Motivation 
 This project was inspired by blockchain technology and the need to understand the technology on a more fundamental level. The Mining Game hopes to provide an entertaining game that helps users solidify their understanding while having some fun. 
