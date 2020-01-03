@@ -1,6 +1,14 @@
 # The Mining Game
 A simple node mining game that uses hashes and cryptocurrency prices to determine the rate of mining and how many miners a user gets.
 
+###### Game Mechanics: 
+1. User is asked a yes/no question about the price of a random cryptocurrency
+2. User predicts whether the price will increase or decrease
+3. If the user predicts correctly, the program will mine fictious coins for the user; however if the user predicts incorrectly, no coins will be mined. 
+
+###### Game's Goal: 
+  The goal of the game is to mine more coins than other user. 
+
 ## Motivation 
 This project was inspired by blockchain technology and the need to understand the technology on a more fundamental level. The Mining Game hopes to provide an entertaining game that helps users solidify their understanding while having some fun. 
 
