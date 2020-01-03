@@ -8,13 +8,13 @@ class CryptoPriceAPI{
     this.queryString = null; 
   }
 
-  async getPrice(randomCryptoAsset) {
+  getPrice(randomCryptoAsset) {
 
     this.cryptoAsset = randomCryptoAsset; 
     
     this.queryString = 'https://min-api.cryptocompare.com/data/price?fsym='+ this.cryptoAsset +'&tsyms=USD&api_key='+ apiKey
 
-    let result = await fetch(this.queryString)
+    let result = fetch(this.queryString)
       .then(res => res.json()
       .then(data => {
 
@@ -27,14 +27,6 @@ class CryptoPriceAPI{
   }
   
 }
-
-// let checker = new CryptoPriceAPI();
-// let result = (async function() {
-
-//   let value = await checker.getPrice('BTC')
-//   console.log(value)
-//   return value 
-// })(); 
 
 
 module.exports = CryptoPriceAPI;
