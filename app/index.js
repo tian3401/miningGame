@@ -1,12 +1,16 @@
 const Miner = require("./miner")
 const inquirer = require('inquirer');
-
 const listOfCrypto = ["BTC", "XRP", "LTC", "ETH"]; 
+const PriceChecker = require("./api")
+let cryptoCurrency = cryptoSelector(listOfCrypto);
+console.log('cryptoCurrency: ', cryptoCurrency)
+let miner = new Miner(); 
+let api = new PriceChecker();
 
 function cryptoSelector(list) {
 
-  let randomInt = Math.floor(Math.random()*listOfCrypto.length),
-  selectedCrypto = listOfCrypto[randomInt];
+  let randomInt = Math.floor(Math.random()*list.length),
+  selectedCrypto = list[randomInt];
 
   console.log(`Random Crypto Asset for today is ${selectedCrypto}!`)
 
@@ -16,8 +20,8 @@ function cryptoSelector(list) {
 function questionGenerator(selectedCrypto) {
 
   let currentDate = new Date().getTime(),
-  oneDayLag = 1000*60*60*24,
-  futureDateInMilliseconds = currentDate + oneDayLag,
+  timeLag = 1000*60*60*24,
+  futureDateInMilliseconds = currentDate + timeLag,
   futureDate = new Date(futureDateInMilliseconds),
   question = {
     type: 'list',
@@ -30,26 +34,47 @@ function questionGenerator(selectedCrypto) {
   }
 
   return question; 
-  
 
 }
 
-let cryptoCurrency = cryptoSelector();
-let miner = new Miner(); 
+const cryptoPrice = api.getPrice(cryptoCurrency);
 
 inquirer
   .prompt(questionGenerator(cryptoCurrency))
   .then(response => {
 
-    console.log("the response: ",response)
+    const cryptoPriceCheck = api.getPrice(cryptoCurrency);
+      
+    setTimeout(() => {
+      switch(response.prediction){
+        case "increase": 
+          if(cryptoPrice <= cryptoPriceCheck) {
+            console.log('Is ',cryptoPrice, '<=',cryptoPriceCheck, ':', cryptoPrice <= cryptoPriceCheck)
+            console.log("You predicted correctly! You get to mine.")
+            miner.startMining();
+          }
+          else {
+            console.log('Is ',cryptoPrice, '>',cryptoPriceCheck, ':', cryptoPrice > cryptoPriceCheck)
+            console.log("You're prediction is wrong.")
+          }
+          break;
 
-    //Currently runs the miner as long as a response is given. 
-    //Will need to update code to run if response is the correct response. 
-    if(response) {
-      miner.startMining();
-    }
-    
+        case "decrease": 
+          if(cryptoPrice >= cryptoPriceCheck) {
+            console.log('Is ',cryptoPrice, '>=',cryptoPriceCheck, ':', cryptoPrice >= cryptoPriceCheck)
+            console.log("You predicted correctly! You get to mine.")
+            miner.startMining();
+          }
+          else {
+            console.log('Is ',cryptoPrice, '<',cryptoPriceCheck, ':', cryptoPrice < cryptoPriceCheck)
+            console.log("You're prediction is wrong.")
+          }
+          break;
+      }
+    }, 5000)
   })
+
+
 
 
 
