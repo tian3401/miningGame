@@ -13,6 +13,9 @@ Development is still in progress. Updates to the Readme file will be released pi
 
 ## How to Run
 
-In the app folder, run the following the following script. 
+In the app folder, run the following script. 
 
+```
 node index.js 
+
+```
