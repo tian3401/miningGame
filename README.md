@@ -10,3 +10,9 @@ This project was inspired by blockchain technology and the need to understand th
 
 ## Notes 
 Development is still in progress. Updates to the Readme file will be released piece meal. 
+
+## How to Run
+
+In the app folder, run the following the following script. 
+
+node index.js 
