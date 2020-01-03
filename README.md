@@ -6,6 +6,8 @@ This project was inspired by blockchain technology and the need to understand th
 
 ## Features 
 
+**Cryptocurreny Prices:** The game utilizes CryptoCompare's API to get cryptoprices and asks the user to predict whether the price will increase or decrease via a prompt. 
+
 **Mining Coins:** The game allows the user to mine fictious coins by solving a cryptographic puzzle. Although there is not an official blockchain associated with this mining, the most basic mechanism of how miners solve these mathematical puzzles in order to mine new cryptocurrency is illustrated with this feature. 
 
 ## Notes 
